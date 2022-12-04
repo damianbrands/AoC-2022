@@ -10,14 +10,13 @@ export class Result extends React.Component {
 
     render() {
         console.log(this.state.value);
-
         return (
             <div className={"Results"}>
                 <div className={"ResultText"}>
                     results:
                 </div>
                 <div className={"Answer"} onClick={() => console.log(this.state.value)}>
-                    {this.state.value ? this.state.value : 0}
+                    {this.state.value}
                 </div>
             </div>
         );

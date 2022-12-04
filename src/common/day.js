@@ -7,6 +7,7 @@ export class Day extends React.Component{
         super(props);
         this.state = {
             dayNumber: this.props.dayNumber,
+            handleAnswer: this.props.handleAnswer,
         }
     }
 
@@ -16,7 +17,7 @@ export class Day extends React.Component{
                 <div className={"DayNumber"}>day {this.state.dayNumber}</div>
                 <div className={"DayInput"}>
                     <DayInput></DayInput>
-                    <CalculateButton></CalculateButton>
+                    <CalculateButton handleAnswer={this.props.handleAnswer}></CalculateButton>
                 </div>
             </div>
         )
