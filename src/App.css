@@ -44,8 +44,13 @@
   }
 }
 
+.AOCTitle{
+  font-weight: bold;
+  font-size: 40px;
+}
+
 .Results {
-  margin-top: 75px;
+  margin-top: 45px;
   display: flex;
   align-content: space-between;
   align-items: center;
@@ -54,7 +59,7 @@
 
 .ResultText{
   padding: 10px 20px 10px 0;
-  font-weight: bold;
+
 }
 
 .Answer{
@@ -68,7 +73,7 @@
   background-color: white;
   width: 63vw;
   height: 3px;
-  margin: 20px 20px 0 0;
+  margin: 30px 20px 50px 0;
 }
 
 .Day {
@@ -80,6 +85,11 @@
 
 .Day *{
   margin-top: 10px;
+}
+
+.DayNumber{
+  font-size: 34px;
+  margin: 0 0 20px 0;
 }
 
 .DayInput {

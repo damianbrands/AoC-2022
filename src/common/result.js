@@ -1,24 +1,20 @@
 import React from "react";
 
-export class Result extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: this.props.value,
-        };
-    }
+const Result = props => {
+    const {answer} = props;
 
-    render() {
-        console.log(this.state.value);
-        return (
+    return (
+        <>
             <div className={"Results"}>
                 <div className={"ResultText"}>
-                    results:
+                    answer:
                 </div>
                 <div className={"Answer"} onClick={() => console.log(this.state.value)}>
-                    {this.state.value}
+                    {answer}
                 </div>
             </div>
-        );
-    }
+        </>
+    );
 }
+
+export default Result;
