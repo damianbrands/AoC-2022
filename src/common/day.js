@@ -66,40 +66,38 @@ const Day = props => {
 
         for(let i = 0; i < elfMoves.length; i++){
             let rpsYou = 0;
-
             switch(yourMoves[i]){
                 case 'X':
-                    rpsYou += 1;
+                    rpsYou = 1;
                     break;
                 case 'Y':
-                    rpsYou += 2;
+                    rpsYou = 2;
                     break;
                 case 'Z':
-                    rpsYou += 3;
+                    rpsYou = 3;
                     break;
             }
             totalScore += rpsYou;
-            totalScore += rpsScore(elfMoves[i], rpsYou);
+            totalScore += rpsScore(getElfRps(elfMoves[i]), rpsYou);
         }
 
         return totalScore;
     }
 
-    function rpsScore(elfMove, rpsYou){
-        let rpsElf = 0;
+    function getElfRps(elfMove){
         switch (elfMove){
             case 'A':
-                rpsElf = 1;
-                break;
+                return  1;
             case 'B':
-                rpsElf = 2;
-                break;
+                return  2;
             case 'C':
-                rpsElf = 3;
-                break;
+                return  3;
             default:
                 return null;
         }
+    }
+
+    function rpsScore(rpsElf, rpsYou){
         if(rpsElf === rpsYou){
             return 3;
         }
@@ -110,8 +108,35 @@ const Day = props => {
     }
 
     function day2Star(){
+        const moves = puzzleInput.split(" ");
+        const elfMoves = [];
+        const yourMoves = [];
+        let totalScore = 0;
 
-        return 0;
+        for(let i = 0; i < moves.length; i++){
+            (i % 2 === 0 ? elfMoves : yourMoves).push(moves[i]);
+        }
+
+        for(let i = 0; i < elfMoves.length; i++){
+            let rpsYou = 0;
+            let rpsElf = getElfRps(elfMoves[i])
+
+            switch(yourMoves[i]){
+                case 'X':
+                    rpsYou = (rpsElf === 1 ? 3 : (rpsElf === 2 ? 1 : 2));
+                    break;
+                case 'Y':
+                    rpsYou = rpsElf;
+                    break;
+                case 'Z':
+                    rpsYou = (rpsElf === 1 ? 2 : (rpsElf === 2 ? 3 : 1));
+                    break;
+            }
+            totalScore += rpsYou;
+            totalScore += rpsScore(rpsElf, rpsYou);
+        }
+
+        return totalScore;
     }
 
     return (

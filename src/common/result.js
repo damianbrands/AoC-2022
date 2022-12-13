@@ -10,7 +10,7 @@ const Result = props => {
                 <div className={"ResultText"}>
                     {name}:
                 </div>
-                <div className={"Answer"} onClick={() => console.log(this.state.value)}>
+                <div className={"Answer"} onClick={() => console.log(answer)}>
                     {answer}
                 </div>
             </div>
