@@ -127,15 +127,15 @@ const Day = props => {
                     break;
                 case 'Y':
                     rpsYou = rpsElf;
+                    totalScore += 3;
                     break;
                 case 'Z':
                     rpsYou = (rpsElf === 1 ? 2 : (rpsElf === 2 ? 3 : 1));
+                    totalScore += 6;
                     break;
             }
             totalScore += rpsYou;
-            totalScore += rpsScore(rpsElf, rpsYou);
         }
-
         return totalScore;
     }
 
