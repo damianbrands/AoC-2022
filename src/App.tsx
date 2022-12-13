@@ -11,7 +11,7 @@ const App = () => {
                 <div className={"AOCTitle"}>aoc 2022</div>
                 <div className={"Line"}></div>
                 <Day dayNumber={1}></Day>
-                <Day dayNumber={1.5}></Day>
+                <Day dayNumber={2}></Day>
             </header>
         </div>
     );
