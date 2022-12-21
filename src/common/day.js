@@ -76,6 +76,8 @@ const Day = props => {
                 case 'Z':
                     rpsYou = 3;
                     break;
+                default:
+                    break;
             }
             totalScore += rpsYou;
             totalScore += rpsScore(getElfRps(elfMoves[i]), rpsYou);
@@ -133,6 +135,8 @@ const Day = props => {
                     rpsYou = (rpsElf === 1 ? 2 : (rpsElf === 2 ? 3 : 1));
                     totalScore += 6;
                     break;
+                default:
+                    break;
             }
             totalScore += rpsYou;
         }
@@ -164,7 +168,28 @@ const Day = props => {
     }
 
     function day3Star(){
+        let rucksacks = puzzleInput.split(" ");
+        let totalScore = 0;
+        let pointsA = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let points = {}
 
+        for(let i = 0; i < pointsA.length; i++){
+            points[pointsA.charAt(i)] = i + 1;
+        }
+
+        for(let i = 0; i < rucksacks.length / 3; i++){
+            let rucksack1 = rucksacks[i * 3];
+            let rucksack2 = rucksacks[i * 3 + 1];
+            let rucksack3 = rucksacks[i * 3 + 2];
+
+            for(let i = 0; i < rucksack1.length; i++){
+                if(rucksack2.includes(rucksack1.charAt(i)) && rucksack3.includes(rucksack1.charAt(i))){
+                    totalScore += points[rucksack1.charAt(i)];
+                    break;
+                }
+            }
+        }
+        return totalScore;
     }
 
     return (
