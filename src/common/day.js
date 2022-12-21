@@ -139,6 +139,34 @@ const Day = props => {
         return totalScore;
     }
 
+    function day3(){
+        let rucksacks = puzzleInput.split(" ");
+        let totalScore = 0;
+        let pointsA = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let points = {}
+
+        for(let i = 0; i < pointsA.length; i++){
+            points[pointsA.charAt(i)] = i + 1;
+        }
+
+        for(let items of rucksacks){
+            let half1 = items.substring(0, items.length / 2);
+            let half2 = items.substring(items.length / 2);
+
+            for(let i = 0; i < half1.length; i++){
+                if(half2.includes(half1.charAt(i))){
+                    totalScore += points[half1.charAt(i)];
+                    break;
+                }
+            }
+        }
+        return totalScore;
+    }
+
+    function day3Star(){
+
+    }
+
     return (
         <>
             <div className={"DayNumber"}>
@@ -153,6 +181,9 @@ const Day = props => {
                                 break;
                         case 2: setAnswerNormal(day2());
                                 setAnswerStar(day2Star());
+                                break;
+                        case 3: setAnswerNormal(day3());
+                                setAnswerStar(day3Star());
                                 break;
                         default: setAnswerNormal(0);
                     }

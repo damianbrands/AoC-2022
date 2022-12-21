@@ -12,6 +12,7 @@ const App = () => {
                 <div className={"Line"}></div>
                 <Day dayNumber={1}></Day>
                 <Day dayNumber={2}></Day>
+                <Day dayNumber={3}></Day>
             </header>
         </div>
     );
